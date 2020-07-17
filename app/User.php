@@ -19,7 +19,16 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    /**
+    public function questions(){
+        return $this->hasMany(Question::class);
+    }
+
+    public function replies(){
+        return $this->hasMany(Reply::class);
+    }
+
+
+        /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -36,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
 }
